@@ -175,8 +175,8 @@ if __name__ == '__main__':
     # with models.DATABASE.transaction():
         models.User.create_user(
             username='seth',
-            email='hello@seth.com',
-            password='password',
+            email='hello@sethbergman.com',
+            password='austin',
             admin=True
         )
     except ValueError:

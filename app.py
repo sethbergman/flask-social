@@ -131,7 +131,7 @@ def view_post(post_id):
 @login_required
 def follow(username):
     try:
-        to_user = models.User.get(models.User.username**username)#case insensitve search **
+        to_user = models.User.get(models.User.username**username)# '**' = case insensitve search
     except models.DoesNotExist:
         abort(404)
     else:
@@ -144,7 +144,7 @@ def follow(username):
         except models.IntegrityError:
             pass
         else:
-            flash("You've followed {}!".format(to_user.username), "success")
+            flash("You're following {}!".format(to_user.username), "success")
     return redirect(url_for('stream', username=to_user.username))
 
 
@@ -175,8 +175,8 @@ if __name__ == '__main__':
     # with models.DATABASE.transaction():
         models.User.create_user(
             username='seth',
-            email='hello@sethbergman.com',
-            password='austin',
+            email='hello@seth.com',
+            password='password',
             admin=True
         )
     except ValueError:

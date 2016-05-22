@@ -3,3 +3,5 @@ Flask-Bcrypt==0.7.1
 Flask-Login==0.3.2
 Flask-WTF==0.12
 peewee==2.8.1
+python-dev
+libffi-dev

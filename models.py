@@ -23,6 +23,7 @@ class User(UserMixin, Model):
 
     def get_stream(self):
         return Post.select().where(
+            (Post.user << self.following()) |
             (Post.user == self)
         )
 
@@ -35,7 +36,7 @@ class User(UserMixin, Model):
                     Relationship.from_user == self
                 )
           )
-          
+
     def followers(self):
         """people following you"""
         return (User.select().join(

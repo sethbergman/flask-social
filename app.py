@@ -121,10 +121,10 @@ def stream(username=None):
 
 @app.route('/post/<int:post_id>')
 def view_post(post_id):
-  posts = models.Post.select().where(models.Post.id == post_id)
-  if posts.count() == 0:
-      abort(404)
-  return render_template('stream.html', stream=posts)
+    posts = models.Post.select().where(models.Post.id == post_id)
+    if posts.count() == 0:
+        abort(404)
+    return render_template('stream.html', stream=posts)
 
 
 @app.route('/follow/<username>')
@@ -168,6 +168,10 @@ def unfollow(username):
             flash("You've unfollowed {}!".format(to_user.username), "success")
     return redirect(url_for('stream', username=to_user.username))
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
 
 if __name__ == '__main__':
     models.initialize()
@@ -175,8 +179,8 @@ if __name__ == '__main__':
     # with models.DATABASE.transaction():
         models.User.create_user(
             username='seth',
-            email='hello@sethbergman.com',
-            password='austin',
+            email='hello@seth.com',
+            password='password',
             admin=True
         )
     except ValueError:

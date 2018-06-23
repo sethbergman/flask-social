@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+flask = "==0.10.1"
+Flask-Bcrypt = "==0.7.1"
+Flask-Login = "==0.3.2"
+Flask-WTF = "==0.12"
+peewee = "==2.8.1"
+cffi = "==1.6.0"
+
+[requires]
+python_version = "2.7"
